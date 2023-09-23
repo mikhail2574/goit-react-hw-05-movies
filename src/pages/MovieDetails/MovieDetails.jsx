@@ -50,6 +50,7 @@ const MovieDetails = () => {
       <p>Rating: {vote_average.toFixed(1)} / 10</p>
       <p>Votes: {vote_count}</p>
       <Link to="reviews">Look reviews</Link>
+      <Link to="cast">Look credits</Link>
       <Outlet />
     </div>
   );

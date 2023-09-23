@@ -6,10 +6,11 @@ import {
   Route,
   Outlet,
 } from 'react-router-dom';
-import Home from 'components/Home/Home';
-import Movies from 'components/Movies/Movies';
-import MovieDetails from 'components/MovieDetails/MovieDetails';
+import Home from 'pages/Home/Home';
+import Movies from 'pages/Movies/Movies';
+import MovieDetails from 'pages/MovieDetails/MovieDetails';
 import Reviews from 'components/Reviews/Reviews';
+import Cast from 'components/Cast/Cast';
 
 const Header = () => {
   return (
@@ -25,6 +26,7 @@ const Header = () => {
           <Route path="movies" element={<Movies />} />
           <Route path="movies/:id" element={<MovieDetails />}>
             <Route path="reviews" element={<Reviews />} />
+            <Route path="cast" element={<Cast />} />
           </Route>
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>

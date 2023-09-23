@@ -1,6 +1,5 @@
 import React from 'react';
 import TopRatedList from 'components/TopRatedList/TopRatedList';
-import { Outlet } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -9,7 +8,6 @@ const Home = () => {
       <ul>
         <TopRatedList />
       </ul>
-      <Outlet />
     </>
   );
 };
