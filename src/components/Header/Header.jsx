@@ -13,7 +13,7 @@ import Reviews from 'components/Reviews/Reviews';
 
 const Header = () => {
   return (
-    <Router>
+    <Router basename="/">
       <div className="header">
         <nav>
           <NavLink to="/">Home</NavLink>
@@ -26,6 +26,7 @@ const Header = () => {
           <Route path="movies/:id" element={<MovieDetails />}>
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
         <Outlet />
       </div>
