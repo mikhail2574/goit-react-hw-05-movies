@@ -12,7 +12,6 @@ const Cast = () => {
         const BASE_URL = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=11dbf7ff99397f09579266bad6d825fc&language=en-US&page=1`;
         const response = await axios.get(BASE_URL);
         setCast(response.data.cast);
-        console.log(cast);
       } catch (error) {
         console.error('Error fetching cast:', error);
       }

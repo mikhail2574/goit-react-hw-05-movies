@@ -1,4 +1,4 @@
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 
@@ -13,6 +13,7 @@ const params = new URLSearchParams({
 });
 
 const Movies = () => {
+  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
 
@@ -27,7 +28,10 @@ const Movies = () => {
       setMovies(
         resp.data.results.map(movie => (
           <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+            <Link to={`${movie.id}`} state={{ from: location }}>
+              {' '}
+              {movie.title}
+            </Link>
           </li>
         ))
       );
@@ -36,7 +40,7 @@ const Movies = () => {
   onLoad();
 
   function onInput(evt) {
-    if (evt.key !== 'Enter') {
+    if (evt.key !== 'Enter' || !evt.target.value) {
       return;
     }
     const { value } = evt.target;
