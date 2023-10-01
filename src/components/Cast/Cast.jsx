@@ -27,7 +27,7 @@ const Cast = () => {
         {cast.map(credit => (
           <li key={credit.id}>
             <img
-              alt="cast photo"
+              alt="author"
               src={`https://image.tmdb.org/t/p/w500/${credit.profile_path}`}
             />
             <p>{credit.name}</p>
