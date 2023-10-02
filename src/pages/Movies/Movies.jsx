@@ -52,7 +52,9 @@ const Movies = () => {
         resp.data.results.map(movie => {
           return (
             <li>
-              <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+                {movie.title}
+              </Link>
             </li>
           );
         })

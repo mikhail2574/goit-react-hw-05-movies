@@ -7,7 +7,7 @@ const MovieDetails = () => {
   const [movieData, setMovieData] = useState(null);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
-
+  console.log(location);
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
@@ -23,7 +23,7 @@ const MovieDetails = () => {
   }, [id]);
 
   if (!movieData) {
-    return <p>Not found</p>; // Можно также вернуть загрузочный компонент или сообщение о загрузке
+    return <p>Not found</p>;
   }
 
   const {
@@ -49,8 +49,12 @@ const MovieDetails = () => {
       <p>Budget: {budget}$</p>
       <p>Rating: {vote_average.toFixed(1)} / 10</p>
       <p>Votes: {vote_count}</p>
-      <Link to="reviews">Look reviews</Link>
-      <Link to="cast">Look credits</Link>
+      <Link to="reviews" state={{ from: backLinkHref }}>
+        Look reviews
+      </Link>
+      <Link to="cast" state={{ from: backLinkHref }}>
+        Look credits
+      </Link>
       <Outlet />
     </div>
   );
